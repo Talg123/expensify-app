@@ -10,14 +10,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 const store = configureStore();
-const expOne = store.dispatch(addExpense({description: 'Water bill', amount:4440}));
-const expTwo = store.dispatch(addExpense({description: 'gas bill', createdAt: 789}));
-const expThree = store.dispatch(addExpense({description: 'Water bill', amount:321}));
 
-store.subscribe(()=>{
-    const state = store.getState();
-    const visiable = getVisiableExpenses(state.expenses, state.filters);
-})
 
 const jsx = (
     <Provider store={store}>
