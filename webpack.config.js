@@ -8,7 +8,7 @@ module.exports = (env) =>{
     return {
         entry: './src/app.js',
         output: {
-            path: path.join(__dirname, 'public'),
+            path: path.join(__dirname, 'public','dist'),
             filename: 'bundle.js'
         },
         module: {
@@ -18,7 +18,6 @@ module.exports = (env) =>{
                 exclude: /node_modules/
             },
         {
-
             test: /\.s?css$/,
             use: CSSExtract.extract({
                 use: [{loader:'css-loader',
@@ -36,6 +35,7 @@ module.exports = (env) =>{
         devServer: {
             contentBase:path.join(__dirname, 'public'),
             historyApiFallback: true,
+            publicPath: '/dist/'
         }
     };
 };
